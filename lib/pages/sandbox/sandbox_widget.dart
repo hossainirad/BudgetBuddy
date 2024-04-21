@@ -43,10 +43,11 @@ class _SandboxWidgetState extends State<SandboxWidget> {
           floatHeaderSlivers: true,
           headerSliverBuilder: (context, _) => [
             SliverAppBar(
-              expandedHeight: 60.0,
-              collapsedHeight: 350.0,
+              expandedHeight: 200.0,
+              collapsedHeight: 60.0,
               pinned: true,
-              floating: false,
+              floating: true,
+              snap: true,
               backgroundColor: FlutterFlowTheme.of(context).primary,
               automaticallyImplyLeading: false,
               actions: const [],
