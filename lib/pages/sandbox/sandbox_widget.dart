@@ -48,7 +48,6 @@ class _SandboxWidgetState extends State<SandboxWidget> {
               pinned: true,
               floating: true,
               snap: true,
-              backgroundColor: FlutterFlowTheme.of(context).primary,
               automaticallyImplyLeading: false,
               actions: const [],
               flexibleSpace: FlexibleSpaceBar(
