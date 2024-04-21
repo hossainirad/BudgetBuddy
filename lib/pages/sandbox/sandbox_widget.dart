@@ -303,6 +303,7 @@ class _SandboxWidgetState extends State<SandboxWidget> {
                 preferredSize: const Size.fromHeight(10.0),
                 child: Container(),
               ),
+              toolbarHeight: 100.0,
               elevation: 4.0,
             )
           ],
