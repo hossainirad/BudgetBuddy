@@ -1,4 +1,3 @@
-import '/auth/supabase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -25,7 +24,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget> {
     super.initState();
     _model = createModel(context, () => RegisterPageModel());
 
-    _model.emailTextController ??=
+    _model.textController1 ??=
         TextEditingController(text: 'ali.hossaini34@yahoo.com');
     _model.textFieldFocusNode ??= FocusNode();
 
@@ -109,10 +108,10 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget> {
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                     child: TextFormField(
-                      controller: _model.emailTextController,
+                      controller: _model.textController1,
                       focusNode: _model.textFieldFocusNode,
                       onChanged: (_) => EasyDebounce.debounce(
-                        '_model.emailTextController',
+                        '_model.textController1',
                         const Duration(milliseconds: 2000),
                         () => setState(() {}),
                       ),
@@ -167,10 +166,10 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget> {
                           ),
                           borderRadius: BorderRadius.circular(0.0),
                         ),
-                        suffixIcon: _model.emailTextController!.text.isNotEmpty
+                        suffixIcon: _model.textController1!.text.isNotEmpty
                             ? InkWell(
                                 onTap: () async {
-                                  _model.emailTextController?.clear();
+                                  _model.textController1?.clear();
                                   setState(() {});
                                 },
                                 child: Icon(
@@ -190,8 +189,8 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget> {
                           ),
                       textAlign: TextAlign.start,
                       keyboardType: TextInputType.emailAddress,
-                      validator: _model.emailTextControllerValidator
-                          .asValidator(context),
+                      validator:
+                          _model.textController1Validator.asValidator(context),
                     ),
                   ),
                   Padding(
@@ -366,30 +365,8 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget> {
                   Align(
                     alignment: const AlignmentDirectional(0.0, 0.0),
                     child: FFButtonWidget(
-                      onPressed: () async {
-                        GoRouter.of(context).prepareAuthEvent();
-                        if (_model.passwordFieldTextController.text !=
-                            _model.cinfirmPasswordFieldTextController.text) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text(
-                                'Passwords don\'t match!',
-                              ),
-                            ),
-                          );
-                          return;
-                        }
-
-                        final user = await authManager.createAccountWithEmail(
-                          context,
-                          _model.emailTextController.text,
-                          _model.passwordFieldTextController.text,
-                        );
-                        if (user == null) {
-                          return;
-                        }
-
-                        context.goNamedAuth('HomePage', context.mounted);
+                      onPressed: () {
+                        print('Button pressed ...');
                       },
                       text: 'ثبتنام',
                       options: FFButtonOptions(

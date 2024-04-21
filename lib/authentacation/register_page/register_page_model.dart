@@ -8,8 +8,8 @@ class RegisterPageModel extends FlutterFlowModel<RegisterPageWidget> {
   final unfocusNode = FocusNode();
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
-  TextEditingController? emailTextController;
-  String? Function(BuildContext, String?)? emailTextControllerValidator;
+  TextEditingController? textController1;
+  String? Function(BuildContext, String?)? textController1Validator;
   // State field(s) for PasswordField widget.
   FocusNode? passwordFieldFocusNode;
   TextEditingController? passwordFieldTextController;
@@ -32,7 +32,7 @@ class RegisterPageModel extends FlutterFlowModel<RegisterPageWidget> {
   void dispose() {
     unfocusNode.dispose();
     textFieldFocusNode?.dispose();
-    emailTextController?.dispose();
+    textController1?.dispose();
 
     passwordFieldFocusNode?.dispose();
     passwordFieldTextController?.dispose();
